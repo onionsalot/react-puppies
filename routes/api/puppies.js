@@ -7,7 +7,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // GET .api.users.check-token
 router.get('/',puppiesCtrl.index)
-
+router.get('/', puppiesCtrl.show)
 
 // POST /api/users
 router.post('/', puppiesCtrl.create)

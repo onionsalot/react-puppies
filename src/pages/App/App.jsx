@@ -7,6 +7,7 @@ import NavBar from '../../Components/NavBar/NavBar';
 import Puppies from '../Puppies/Puppies'
 import * as puppiesAPI from '../../utilities/puppies-api'
 import AddPuppyPage from '../../Components/AddPuppyForm/AddPuppyForm';
+import PuppyDetailPage from '../PuppyDetailPage/PuppyDetailPage'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -44,6 +45,9 @@ export default function App() {
           </Route>
           <Route exact path="/new">
             <AddPuppyPage handleAddPuppy={handleAddPuppy}/>
+          </Route>
+          <Route exact path="/details">
+            <PuppyDetailPage />
           </Route>
         </Switch>
       </>

@@ -8,7 +8,6 @@ export default function Puppies({showPuppies}) {
   }
   return (
     <>
-    <h1>Puppies</h1>
     <PuppyList showPuppies={showPuppies} />
     <button onClick={handleCheckToken}>CHECK WHEN MY LOGIN EXPIRES</button>   
     </>  
