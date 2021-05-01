@@ -8,7 +8,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 // GET .api.users.check-token
 router.get('/',puppiesCtrl.index)
 
-// POST /api/users
 
+// POST /api/users
+router.post('/', puppiesCtrl.create)
 
 module.exports = router;

@@ -8,7 +8,6 @@ export default function PuppyList({showPuppies}) {
         age={p.age}
         
         />)
-    console.log(`here be puppies => ${showPuppies}`)
 
       return (
 <>
