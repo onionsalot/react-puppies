@@ -13,7 +13,7 @@ function PuppyDetailPage(props) {
   return (
       <>
       <h1>Puppy Details</h1>
-      {puppy._id} || {puppy.name}
+      ID: {puppy._id} <br/> Name: {puppy.name}<br/> Breed: {puppy.breed}<br/> Age: {puppy.age}
     </>
   );
 }

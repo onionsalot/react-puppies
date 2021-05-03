@@ -1,8 +1,8 @@
 import PuppyListItem from '../PuppyListItem/PuppyListItem'
 
-export default function PuppyList({showPuppies}) {
+export default function PuppyList({showPuppies, handleDeletePuppy}) {
     const puppies = showPuppies.map(puppy => 
-    <PuppyListItem puppy={puppy}/>)
+    <PuppyListItem puppy={puppy} handleDeletePuppy={handleDeletePuppy}/>)
 
       return (
 <>

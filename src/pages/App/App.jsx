@@ -20,7 +20,7 @@ export default function App() {
 		// then will run our function below to reroute
 		history.push('/');
 	}, [showPuppies, history]);
-  
+
   useEffect(() => {
     async function getPuppies() {
       const puppies =await puppiesAPI.getAll();
@@ -44,6 +44,12 @@ export default function App() {
     setShowPuppies(newPuppiesArray);
   }
 
+  async function handleDeletePuppy(id){
+    console.log('back to square one', id)
+    await puppiesAPI.deleteOne(id);
+    setShowPuppies(showPuppies.filter(p => p._id !== id))
+  }
+
   return (
     <main className="App">
       { user ?
@@ -51,7 +57,7 @@ export default function App() {
         <NavBar user={user} setUser={setUser}/>
         <Switch>
           <Route exact path="/">
-            <Puppies showPuppies={showPuppies}/>
+            <Puppies showPuppies={showPuppies} handleDeletePuppy={handleDeletePuppy}/>
           </Route>
           <Route exact path="/new">
             <AddPuppyPage handleAddPuppy={handleAddPuppy}/>

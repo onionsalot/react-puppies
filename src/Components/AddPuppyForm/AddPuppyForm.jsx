@@ -7,6 +7,7 @@ export default function AddPuppyForm({handleAddPuppy}) {
         breed: '',
         age: ''
     })
+    const [error, setError] = useState('');
 
     function handleChange(e) {
         console.log(e.target.value)
@@ -21,7 +22,8 @@ export default function AddPuppyForm({handleAddPuppy}) {
 
     return (
       <div>
-        <div className="form-container">
+        <h1>Add a Puppy</h1>
+        <div>
           <form autoComplete="off" onSubmit={handleSubmit}>
             <label>Name</label>
             <input
@@ -52,7 +54,7 @@ export default function AddPuppyForm({handleAddPuppy}) {
             </button>
           </form>
         </div>
-        <p className="error-message">&nbsp;bleh</p>
+        <p className="error-message">&nbsp;{error}</p>
       </div>
     );
   }

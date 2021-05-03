@@ -15,3 +15,8 @@ export function update(updatedPuppy) {
     console.log('puppiesAPI.update HIT', (`${BASE_URL}/${updatedPuppy._id}`))
     return sendRequest(`${BASE_URL}/${updatedPuppy._id}`, 'PUT', updatedPuppy)
 }
+
+export function deleteOne(deletedPuppy) {
+    console.log('puppiesAPI.DELETE HIT', deletedPuppy)
+    return sendRequest(`${BASE_URL}/${deletedPuppy}`, 'DELETE');
+}

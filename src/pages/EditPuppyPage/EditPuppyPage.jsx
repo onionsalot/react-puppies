@@ -4,6 +4,7 @@ import {useState} from 'react'
 
 export default function EditPuppyPage({ handleUpdatePuppy }) {
     const { state: {puppy} } = useLocation()
+    const [error, setError] = useState('')
     const [currentPuppy, setCurrentPuppy] = useState({
         _id: puppy._id,
         name: puppy.name,
@@ -27,9 +28,9 @@ export default function EditPuppyPage({ handleUpdatePuppy }) {
     }
   return (
     <main>
-        return (
       <div>
-        <div className="form-container">
+        <div>
+            <h1>EDIT {currentPuppy.name}</h1>
           <form autoComplete="off" onSubmit={handleSubmit}>
             <label>Name</label>
             <input
@@ -60,7 +61,7 @@ export default function EditPuppyPage({ handleUpdatePuppy }) {
             </button>
           </form>
         </div>
-        <p className="error-message">&nbsp;bleh</p>
+        <p className="error-message">&nbsp;{error}</p>
       </div>
     </main>
     );

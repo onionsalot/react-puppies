@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function PuppyListItem({puppy}) {
+export default function PuppyListItem({puppy, handleDeletePuppy}) {
   return (
     <>
       <tr>
@@ -13,7 +13,7 @@ export default function PuppyListItem({puppy}) {
         <td>
         <Link to={{pathname: '/details', state: { puppy }}}>DETAILS</Link><br />
         <Link to={{pathname: '/edit', state: { puppy }}}>EDIT</Link><br />
-        <Link to={{pathname: `/${puppy._id}`, state: { puppy }}}>DELETE</Link>
+        <button onClick={() => handleDeletePuppy(puppy._id)}>DELETE</button>
         </td>
       </tr>
     </>
