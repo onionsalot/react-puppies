@@ -12,4 +12,6 @@ router.get('/', puppiesCtrl.show)
 // POST /api/users
 router.post('/', puppiesCtrl.create)
 
+router.put('/:id', puppiesCtrl.update)
+
 module.exports = router;

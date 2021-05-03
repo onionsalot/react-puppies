@@ -12,7 +12,8 @@ export default function PuppyListItem({puppy}) {
         </td>
         <td>
         <Link to={{pathname: '/details', state: { puppy }}}>DETAILS</Link><br />
-        <Link to={{pathname: '/details', state: { puppy }}}>DELETE</Link>
+        <Link to={{pathname: '/edit', state: { puppy }}}>EDIT</Link><br />
+        <Link to={{pathname: `/${puppy._id}`, state: { puppy }}}>DELETE</Link>
         </td>
       </tr>
     </>

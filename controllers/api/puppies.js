@@ -4,7 +4,8 @@ const Puppy = require('../../models/puppy');
 module.exports= {
 index,
 create,
-show
+show,
+update
 }
 
 async function index(req, res, next) {
@@ -19,4 +20,9 @@ async function create( req, res, next ) {
 async function show(req, res, next) {
     const puppy = await Puppy.findById(req.params.id);
     res.status(200).json(puppy);
+}
+async function update(req, res, next) {
+    console.log('Puppy ID chosen was',req.params.id)
+    const updatedPuppy=await Puppy.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.status(200).json(updatedPuppy);
 }

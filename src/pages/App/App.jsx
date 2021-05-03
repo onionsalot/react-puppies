@@ -8,6 +8,7 @@ import Puppies from '../Puppies/Puppies'
 import * as puppiesAPI from '../../utilities/puppies-api'
 import AddPuppyPage from '../../Components/AddPuppyForm/AddPuppyForm';
 import PuppyDetailPage from '../PuppyDetailPage/PuppyDetailPage'
+import EditPuppyPage from '../EditPuppyPage/EditPuppyPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -19,6 +20,7 @@ export default function App() {
 		// then will run our function below to reroute
 		history.push('/');
 	}, [showPuppies, history]);
+  
   useEffect(() => {
     async function getPuppies() {
       const puppies =await puppiesAPI.getAll();
@@ -32,6 +34,14 @@ export default function App() {
     console.log(`handleAddPuppy's call => ${newPuppy}`)
     setShowPuppies([...showPuppies, newPuppy])
     console.log(showPuppies)
+  }
+
+  async function handleUpdatePuppy(updatedPuppyData) {
+    const updatedPuppy = await puppiesAPI.update(updatedPuppyData);
+    const newPuppiesArray = showPuppies.map(p =>
+      p._id === updatedPuppy._id ? updatedPuppy : p
+    );
+    setShowPuppies(newPuppiesArray);
   }
 
   return (
@@ -48,6 +58,9 @@ export default function App() {
           </Route>
           <Route exact path="/details">
             <PuppyDetailPage />
+          </Route>
+          <Route exact path="/edit">
+            <EditPuppyPage handleUpdatePuppy={handleUpdatePuppy}/>
           </Route>
         </Switch>
       </>
